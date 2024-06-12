@@ -32,6 +32,11 @@ $(document).ready(function () {
             recipient,
             sender,
           } = data;
+          const currentTime = new Date().toLocaleString("en-US", {
+            hour: "numeric",
+            minute: "numeric",
+            hour12: true,
+          });
           if (isChatActive(recipient, sender)) {
             // Mostrar el mensaje directamente si el chat está activo
             const div = $("<div>").addClass("message");
@@ -45,12 +50,13 @@ $(document).ready(function () {
               .text(senderUsername)
               .css("color", color);
             const messageDiv = $("<div>").addClass("text").text(message);
+            const timeDiv = $("<div>").addClass("time").text(currentTime);
 
             if (senderUsername === username) {
               div.addClass("right");
             }
 
-            contentDiv.append(usernameDiv).append(messageDiv);
+            contentDiv.append(usernameDiv).append(messageDiv).append(timeDiv);
             div.append(avatarImg).append(contentDiv);
             $("#messages").append(div);
             $("#messages").scrollTop($("#messages")[0].scrollHeight);
@@ -115,6 +121,11 @@ $(document).ready(function () {
           $("#messages").empty();
           messages.forEach((message) => {
             const { username: senderUsername, message: text, color } = message;
+            const currentTime = new Date().toLocaleString("en-US", {
+              hour: "numeric",
+              minute: "numeric",
+              hour12: true,
+            });
             const div = $("<div>").addClass("message");
             const avatarUrl = `https://robohash.org/${senderUsername}.png?size=50x50`; // Usar RoboHash para generar avatares
             const avatarImg = $("<img>")
@@ -126,12 +137,13 @@ $(document).ready(function () {
               .text(senderUsername)
               .css("color", color);
             const messageDiv = $("<div>").addClass("text").text(text);
+            const timeDiv = $("<div>").addClass("time").text(currentTime);
 
             if (senderUsername === username) {
               div.addClass("right");
             }
 
-            contentDiv.append(usernameDiv).append(messageDiv);
+            contentDiv.append(usernameDiv).append(messageDiv).append(timeDiv);
             div.append(avatarImg).append(contentDiv);
             $("#messages").append(div);
           });

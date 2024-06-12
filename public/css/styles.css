@@ -84,11 +84,28 @@ body {
 }
 
 #chat-app header {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 28px; /* Aumentamos el tamaño de la fuente */
+  font-weight: 800; /* Hacemos que el texto sea más grueso */
   color: #0072ff;
   text-align: center;
   margin-bottom: 20px;
+  text-transform: uppercase; /* Convertimos el texto a mayúsculas */
+  letter-spacing: 2px; /* Añadimos espacio entre las letras */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Añadimos una sombra suave */
+  position: relative;
+  padding-bottom: 10px;
+}
+
+#chat-app header::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #0072ff;
+  border-radius: 2px;
 }
 
 #sidebar {
@@ -100,7 +117,7 @@ body {
   border-right: 1px solid #ddd;
   border-radius: 10px;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 #sidebar h2 {
@@ -108,9 +125,26 @@ body {
   padding: 10px 0;
   text-align: center;
   border-bottom: 1px solid #ddd;
-  font-size: 22px;
-  font-weight: 700;
-  color: white;
+  font-size: 24px; /* Aumentamos el tamaño de la fuente */
+  font-weight: 800; /* Hacemos que el texto sea más grueso */
+  color: #1abc9c; /* Cambiamos el color para que resalte */
+  text-transform: uppercase; /* Convertimos el texto a mayúsculas */
+  letter-spacing: 2px; /* Añadimos espacio entre las letras */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Añadimos una sombra suave */
+  position: relative;
+  padding-bottom: 10px;
+}
+
+#sidebar h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: #1abc9c;
+  border-radius: 2px;
 }
 
 #clients {
@@ -149,14 +183,17 @@ body {
 }
 
 .unread-count {
-  background: red;
+  background: #e74c3c; /* Cambiamos el color a un rojo más llamativo */
   color: white;
   border-radius: 50%;
-  padding: 2px 6px;
+  padding: 5px 10px; /* Aumentamos el padding */
   position: absolute;
-  top: 5px;
-  right: 10px;
-  font-size: 0.8em;
+  top: 50%;
+  right: 15px; /* Aumentamos la separación del borde */
+  transform: translateY(-50%);
+  font-size: 0.9em; /* Aumentamos el tamaño de la fuente */
+  font-weight: bold; /* Hacemos el texto más grueso */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Añadimos una sombra para darle más profundidad */
 }
 
 #chat-container {
@@ -174,6 +211,29 @@ body {
   border-radius: 10px;
   margin-bottom: 20px;
   background: #f9f9f9;
+}
+
+/* Hacer invisibles las barras de desplazamiento */
+#messages::-webkit-scrollbar,
+#sidebar::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+#messages::-moz-scrollbar,
+#sidebar::-moz-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+#messages {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+#sidebar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .message {
@@ -251,7 +311,7 @@ body {
   transition: border-color 0.3s;
 }
 
-#message-input:focus {
+#message-input {
   outline: none;
 }
 
@@ -268,10 +328,10 @@ body {
   display: none; /* Ocultar por defecto */
 }
 
-#send-button:hover {
+#send-button {
   transform: scale(1.1);
 }
 
-#message-input:valid + #send-button {
+#message-input + #send-button {
   display: block; /* Mostrar cuando se detecta texto */
 }
