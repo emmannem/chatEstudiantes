@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aplicación de Chat</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <div id="login-container">
+      <h2>Iniciar Sesión</h2>
+      <form id="login-form">
+        <input
+          type="text"
+          id="username"
+          placeholder="Nombre de usuario"
+          required
+        />
+        <input
+          type="email"
+          id="email"
+          placeholder="Correo electrónico"
+          required
+        />
+        <button type="submit">Unirse al Chat</button>
+      </form>
+      <p>¡Bienvenido a la plataforma de chat para estudiantes!</p>
+    </div>
+    <div id="chat-app" style="display: none">
+      <header>Chat para Estudiantes</header>
+      <div style="display: flex; height: 100%">
+        <div id="sidebar">
+          <h2>Estudiantes Conectados</h2>
+          <ul id="clients"></ul>
+        </div>
+        <div id="chat-container">
+          <div id="messages"></div>
+          <form id="message-form">
+            <input
+              id="message-input"
+              placeholder="Escribe un mensaje..."
+              required
+            />
+            <button type="button" id="send-button">➤</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/chat.js"></script>
+  </body>
+</html>
